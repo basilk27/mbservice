@@ -6,7 +6,7 @@
     <artifactId>customer-service</artifactId>
     <packaging>jar</packaging>
 
-    <name>Spring Boot Blank Project (from https://github.com/making/spring-boot-blank)</name>
+    <name>CustomerServiceAPI</name>
 
     <parent>
         <groupId>com.mbsystems</groupId>
