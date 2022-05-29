@@ -23,7 +23,7 @@ public record CustomerService(CustomerRepository customerRepository, RestTemplat
         this.customerRepository.saveAndFlush( customer );
 
         FraudCheckResponse fraudCheckResponse = restTemplate.
-                getForObject("http://localhost:8081/api/v1/fraud-check/{customerId}",
+                getForObject("http://FRAUD-SERVICE/api/v1/fraud-check/{customerId}",
                                  FraudCheckResponse.class, customer.getId() );
 
         if ( fraudCheckResponse.isFraudster() ) {
