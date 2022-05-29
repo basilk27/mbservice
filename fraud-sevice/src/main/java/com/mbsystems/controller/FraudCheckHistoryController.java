@@ -1,6 +1,6 @@
 package com.mbsystems.controller;
 
-import com.mbsystems.model.FraudCheckResponse;
+import com.mbsystems.clients.fraud.FraudCheckResponse;
 import com.mbsystems.service.FraudCheckHistoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
