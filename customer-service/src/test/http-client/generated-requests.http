@@ -1,10 +1,4 @@
 
-###
-GET http://localhost:8080/hello
-
-<> 2022-05-19T124448.200.txt
-
-###
 POST http://localhost:8080/api/v1/customers
 Content-Type: application/json
 
