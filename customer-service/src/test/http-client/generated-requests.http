@@ -7,3 +7,13 @@ Content-Type: application/json
   "lastName": "Ahmed",
   "email": "jamila@gmail.com"
 }
+
+###
+POST http://localhost:8083/api/v1/customers
+Content-Type: application/json
+
+{
+  "firstName": "Jamila",
+  "lastName": "Ahmed",
+  "email": "jamila@gmail.com"
+}
