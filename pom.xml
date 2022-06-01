@@ -12,6 +12,7 @@
     <module>clients-service</module>
     <module>notification-service</module>
     <module>api-gateway</module>
+    <module>amqp-service</module>
   </modules>
 
   <packaging>pom</packaging>
@@ -72,6 +73,11 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
     </dependency>
   </dependencies>
 

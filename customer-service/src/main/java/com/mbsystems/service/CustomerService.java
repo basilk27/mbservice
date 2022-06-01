@@ -1,8 +1,8 @@
 package com.mbsystems.service;
 
+import com.mbsystems.amap.RabbitMQMessageProducer;
 import com.mbsystems.clients.fraud.FraudCheckResponse;
 import com.mbsystems.clients.fraud.FraudClient;
-import com.mbsystems.clients.notification.NotificationClient;
 import com.mbsystems.clients.notification.NotificationRequest;
 import com.mbsystems.entities.Customer;
 import com.mbsystems.model.CustomerRegistrationRequest;
@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 public record CustomerService(CustomerRepository customerRepository,
                               RestTemplate restTemplate,
                               FraudClient fraudClient,
-                              NotificationClient notificationClient ) {
+                              RabbitMQMessageProducer rabbitMQMessageProducer) {
     public void registerCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
         Customer customer = Customer.builder()
                 .firstName( customerRegistrationRequest.firstName() )
@@ -41,6 +41,8 @@ public record CustomerService(CustomerRepository customerRepository,
                         customer.getFirstName())
         );
 
-        this.notificationClient.sendNotification( notificationRequest );
+        this.rabbitMQMessageProducer.publish( notificationRequest,
+                                     "internal.exchange",
+                                     "internal.notification.routing-key" );
     }
 }
