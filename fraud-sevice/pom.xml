@@ -6,7 +6,7 @@
     <artifactId>fraud-sevice</artifactId>
     <packaging>jar</packaging>
 
-    <name>FraudServiceAPI</name>
+    <name>fraud-service</name>
 
     <parent>
         <groupId>com.mbsystems</groupId>
@@ -49,5 +49,27 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>build-docker-image</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.google.cloud.tools</groupId>
+                        <artifactId>jib-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
